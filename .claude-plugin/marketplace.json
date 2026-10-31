@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "crucible",
+  "description": "An adversarial council skill for Claude Code. Distributed as a single-plugin marketplace.",
+  "owner": {
+    "name": "Tato Polanco",
+    "url": "https://github.com/avectats7"
+  },
+  "plugins": [
+    {
+      "name": "crucible",
+      "description": "Five advisors, anonymous cross-examination, a defend/concede round and an independent judge. Returns a verdict or a gated plan.",
+      "category": "productivity",
+      "source": "./"
+    }
+  ]
+}
