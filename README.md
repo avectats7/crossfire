@@ -4,6 +4,25 @@ Crossfire is a Claude Code skill. It sends a decision or a plan to an adversaria
 
 One model gives one answer, and you cannot tell how good that answer is. Crossfire sends the question to five advisors. Each advisor attacks the findings of the other advisors. Each advisor then defends or concedes its own findings. A judge with no stake in the result decides which findings survive.
 
+## What makes it different
+
+Multi-agent review skills usually stop at "ask several agents, then summarize." The weak part of that loop is the summary. Whoever writes it decides which arguments won, and nobody checks the facts those arguments stand on. Crossfire hands that decision to a judge who wrote none of the findings and opens the cited files before ruling.
+
+| | Crossfire | LLM Council | Hyperplan |
+|---|---|---|---|
+| Advisors work from one shared, sourced evidence pack | Yes | Shared context, no sources | No |
+| Anonymous cross-review | Yes | Yes | No, attacks are by role |
+| Advisors defend, refine or concede their own findings | Yes | No | Yes |
+| A neutral judge rules on what survived | Yes | No, the chairman synthesizes | No, the author's DEFEND counts |
+| Cited files get opened and checked | Yes | No | No |
+| Unverified claims stay labeled as assumptions | Yes | No | No |
+| Plan mode with user gates and a separate planner | Yes | No | Yes |
+| Runs in plain Claude Code | Yes | Yes | No, needs oh-my-opencode team mode |
+
+A false citation kills its finding. An advisor who concedes a wrong point scores better than one who defends it. The planner gets a list of killed ideas it may not bring back. Each rule targets a specific way the other two skills let a confident wrong answer through.
+
+It costs more: about 17 subagent calls a run. The skill checks first whether your question deserves that, and answers normally when it does not. For a quick read from several angles, LLM Council is cheaper and good enough.
+
 ## How a run works
 
 1. **Check.** A run uses approximately 17 subagent calls. If a question is small or easy to undo, the skill answers it as usual and does not start a run.
