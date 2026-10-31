@@ -31,5 +31,5 @@ node_modules/
 .idea/
 *.swp
 
-# Local crucible run records
-crucible-runs/
+# Local crossfire run records
+crossfire-runs/
